@@ -34,6 +34,13 @@ export default class {
         })
     }
 
+    async getUserInfo() {
+        const url= `${ROOT_URL}api/v1/me`
+        return fetch(url, {
+            headers: this.getPrivateHeaders()
+        }) 
+    }
+
     async getCustomerList() {
         const url= `${ROOT_URL}api/v1/customers`
         return fetch(url, {
@@ -42,12 +49,28 @@ export default class {
         
     }
 
-     createCustomer(payload) {
+    async getCustomerDetail(id) {
+        const url= `${ROOT_URL}api/v1/customers/${id}/`
+        return fetch(url, {
+            headers: this.getPrivateHeaders()
+        })
+    }
+
+    createCustomer(payload) {
        const url = `${ROOT_URL}api/v1/customers`
         return fetch(url, { //tog bort return innan
             method: "POST",
             headers: this.getPrivateHeaders(),
             body: JSON.stringify(payload) 
+        })
+    }
+
+    updateCustomer(payload, id) {
+        const url = `${ROOT_URL}api/v1/customers/${id}/`
+        return fetch(url, {
+            method: "PUT",
+            headers: this.getPrivateHeaders(),
+            body: JSON.stringify(payload)
         })
     }
 

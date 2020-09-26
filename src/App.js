@@ -4,13 +4,13 @@ import { CustomerContext } from "./contexts/CustomerContext";
 import Navigation from "./components/Navigation"
 import UserKit from "./data/UserKit"
 import ActivatePage from "./pages/ActivatePage"
-import CustomerDetail from "./pages/CustomerDetail"
+import CustomerDetailPage from "./pages/CustomerDetailPage"
 import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 
 function App() {
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState(null);
   // const [firstName, setFirstName] = useState("")
   // const [lastName, setLastName] = useState("")
   // const [email, setEmail] = useState("")
@@ -83,7 +83,7 @@ function App() {
       render={(props) => {
         return (
           <Navigation>
-            <CustomerDetail {...props}/>
+            <CustomerDetailPage {...props}/>
           </Navigation>
           
         )

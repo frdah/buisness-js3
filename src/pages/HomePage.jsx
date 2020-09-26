@@ -3,10 +3,10 @@ import {Link} from "react-router-dom"
 import UserKit from '../data/UserKit'
 import {P,H2, H4, DivCenterColumn, Input, Button, CustomerLI, CustomerUL, CreateCustomerDiv, CreateCustomerButton, CreateCustomerInput, ShowCreateDiv} from "../components/styles"
 import {CustomerContext} from "../contexts/CustomerContext"
+import UserBox from '../components/UserBox'
 
 export default function HomePage() {
   const userKit = new UserKit()
-  //const [customers , setCustomers] = useState([])
   const [name , setName] = useState("")
   const [organisationNr , setOrganisationNr] = useState("")
   const [vatNr , setVatNr] = useState("")
@@ -19,9 +19,6 @@ export default function HomePage() {
   const [showCreateDiv, setShowCreateDiv] = useState(false)
   const [showError, setShowError] = useState(null)
   const {customers, setCustomers} = useContext(CustomerContext)
-
-
-
 
   const inputArr = [
     ["name", name, setName, "text"],
@@ -38,11 +35,6 @@ export default function HomePage() {
         fetchCustomerList()
     }, [])
 
-// useEffect(() => {
-//     console.log(customers)
-// }, [customers])
-
-
     function renderInput(key, placeholder, value, setValue, type) {
         return (
             <div key={key}>
@@ -51,20 +43,19 @@ export default function HomePage() {
         )
     }
 
-    //const tillf = [1, 5, 6 ,3]
     function fetchCustomerList() {
-        userKit.getCustomerList() //körs innan det postats en ny??
+        userKit.getCustomerList() 
         .then(res => res.json())
         .then(data => setCustomers(data.results))
-          //console.log(data.results, "fetch data.results")
-          
-        //.then(console.log(customers))
-        //.then(renderCustomerList())
+
     }
 
     function addCustomer() { 
-        let vatNrNumbersString = vatNr.slice(2,12)
-        if (vatNr.startsWith("SE") && vatNr.length === 12 && /^\d+$/.test(vatNrNumbersString)) {
+        //let vatNrNumbersString = vatNr.slice(2,12)
+        if (vatNr.length === 12 && 
+            vatNr.startsWith("SE") &&  
+            /^\d+$/.test(vatNr.slice(2,12)) &&
+            /^\d+$/.test(paymentTerm)) {
             setShowError(false)
 
             const payload = {
@@ -72,39 +63,29 @@ export default function HomePage() {
                 organisationNr: organisationNr,
                 vatNr: vatNr,
                 reference: reference,
+                paymentTerm: paymentTerm,
                 website: website,
                 phoneNumber: phoneNumber,
                 email: email
             }
-            console.log(payload)
             userKit.createCustomer(payload)
             .then(fetchCustomerList)
-           // .then(console.log(customers)) //denna får ej den senaste
-            
-            
-            // .then(inputArr.map(item => {
-            //     item[2]("")
-            // }))
-            //.then(renderCustomerList()) gör ingen skillnad
-        
         }
         else {
             setShowError(true)
         }   
- 
     }
 
     function handleShowCreateDiv() {
         showCreateDiv === false ? setShowCreateDiv(true) : setShowCreateDiv(false);
     }
-    
 
     function renderCustomerList(){
         return(
             <CustomerUL>
             <H4>Customer List</H4>
             {customers && customers.map((customer, index) => {
-                //console.log(customers)
+                
                 return <CustomerLI key={index}><Link to={`/customers/${customer.id}`}>{customer.name}</Link></CustomerLI>
             })
             }
@@ -112,9 +93,9 @@ export default function HomePage() {
         )
     }
     
-
     return (
         <CustomerContext.Provider value={{customers, setCustomers}}>
+           <UserBox/> 
         <DivCenterColumn>
             <H2>Customers</H2>
             <ShowCreateDiv onClick={handleShowCreateDiv}>
@@ -132,20 +113,7 @@ export default function HomePage() {
                 </CreateCustomerDiv>
             : ""
             }
-            
             {renderCustomerList()}
-            
-            {/* <CustomerUL>
-                <H4>Customer List</H4>
-                {customers && customers.map((customer, index) => {
-                    console.log(customer.name)
-                    return (<Link key={index} to={`/customers/${customer.id}`}>{customer.name}</Link>)
-                })
-                }
-            </CustomerUL> */}
-            {/* <button onClick={getCustomerList}>get custumers</button> */}
-           
-
         </DivCenterColumn>
         </CustomerContext.Provider>
 
