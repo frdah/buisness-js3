@@ -44,6 +44,8 @@ text-align: center;
 font-size: 16px;
 border-radius: 10px;
 color:#8ab7ff;
+&:focus{
+    outline: none;
 `
 
 export const Button = styled.button `
@@ -175,6 +177,8 @@ background-color: light-grey;
 margin: 10px;
 color: #5a5ae8;
 border-radius: 0px;
+&:focus{
+    outline: none;
 `
 
 export const CreateCustomerButton = styled(Button) `
