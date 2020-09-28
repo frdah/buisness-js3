@@ -5,8 +5,8 @@ import {DivCenterColumn, H2, LoginButton, CreateCustomerInput, NavButton, P} fro
 
 export default function LoginPage() {
 
-    const [loginEmail, setLoginEmail] = useState("frida.johansson888+1@gmail.com")
-    const [loginPassword, setLoginPassword] = useState("js-fend-19")
+    const [loginEmail, setLoginEmail] = useState("")
+    const [loginPassword, setLoginPassword] = useState("")
     const [showError, setShowError] = useState(null)
     
     const userKit = new UserKit()

@@ -55,11 +55,11 @@ export default function RegisterPage() {
         
         <DivCenterColumn marginTop white>
             <H2>Register Page</H2>
-            <p>Enter details to register</p>
+            <P>Enter details to register</P>
             {inputArr.map((inputItem, index) => {
                 return renderInput(index, inputItem[0], inputItem[1], inputItem[2], inputItem[3])
             })}
-            {registerd && <P warning>A link has been sent to your email</P>}
+            {registerd && <P>A link has been sent to your email</P>}
             {showError && <P warning>{showError}</P>}
 
             <Button onClick={register}>Register</Button>
