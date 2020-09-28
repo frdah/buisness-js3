@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
-import { useHistory, Link } from 'react-router-dom';
 import UserKit from '../data/UserKit'
-import {H2, DivCenterColumn, Input, Button, P} from "../components/styles"
+import {H2, DivCenterColumn, CreateCustomerInput, Button, P} from "../components/styles"
+import  {validateRegisterInputs} from "../components/validation"
 
 
 export default function RegisterPage() {
 
     const userKit = new UserKit();
-    const history = useHistory()
+
+    const [showError, setShowError] = useState(null)
 
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -19,6 +20,7 @@ export default function RegisterPage() {
 
 
     function register () {
+        if (validateRegisterInputs(setShowError, email, password, organisationKind)) {
         userKit.register(
             firstName, 
             lastName, 
@@ -27,8 +29,8 @@ export default function RegisterPage() {
             organisationName, 
             organisationKind
         ).then(setRegisterd(true))
-        
- 
+         setShowError(null)
+        }
     }
 
     const inputArr = [
@@ -43,27 +45,25 @@ export default function RegisterPage() {
     function renderInput(key, placeholder, value, setValue, type) {
         return (
             <div key={key}>
-                <Input type={type} placeholder={placeholder} value={value} onChange ={(e => {setValue(e.target.value)})}/>
+                <CreateCustomerInput type={type} placeholder={placeholder} value={value} onChange ={(e => {setValue(e.target.value)})}/>
             </div>
         )
         
     }
 
-
     return (
-        <div>
         
-        <DivCenterColumn>
+        <DivCenterColumn marginTop white>
             <H2>Register Page</H2>
             <p>Enter details to register</p>
             {inputArr.map((inputItem, index) => {
                 return renderInput(index, inputItem[0], inputItem[1], inputItem[2], inputItem[3])
             })}
             {registerd && <P warning>A link has been sent to your email</P>}
+            {showError && <P warning>{showError}</P>}
+
             <Button onClick={register}>Register</Button>
 
         </DivCenterColumn>
-
-        </div>
     )
 }

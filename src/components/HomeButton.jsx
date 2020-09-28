@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import {NavDiv, CreateCustomerButton} from "./styles"
+import { NavButton} from "./styles"
 
 
 export default function HomeButton() {
@@ -8,7 +8,7 @@ export default function HomeButton() {
 
     return (
         <div>
-            <CreateCustomerButton onClick={() => {history.push("/home")}}>Home</CreateCustomerButton>
+            <NavButton onClick={() => {history.push("/home")}}>Home</NavButton>
         </div>
     )
 }

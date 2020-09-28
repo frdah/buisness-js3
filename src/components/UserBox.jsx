@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect, useContext} from 'react'
+//import {Link} from "react-router-dom"
 import UserKit from '../data/UserKit'
-import {CustomerLI, DivCenterColumn, H4} from "./styles"
+import { UserDiv, UserLI, A} from "./styles"
+import {UserContext} from "../contexts/UserContext"
 
 export default function UserBox() {
     const userKit = new UserKit()
-    const [userInfo, setUserInfo] = useState("")
+    const {userInfo, setUserInfo} = useContext(UserContext)
 
     function getUserInfo() {
         userKit.getUserInfo()
@@ -19,10 +21,13 @@ export default function UserBox() {
     }, [])
 
     return (
-        <DivCenterColumn>
-            <H4>Logged in as:</H4>
-            <CustomerLI>{userInfo.firstName} {userInfo.lastName}</CustomerLI>
-            <CustomerLI>{userInfo.email}</CustomerLI>
-        </DivCenterColumn>
+        // <UserContext.Provider value={{firstName, setFirstName, lastName, setLastName, email, setEmail}}>
+        <A href="/profile">
+        <UserDiv>
+            <UserLI>{userInfo.firstName} {userInfo.lastName}</UserLI>
+            <UserLI>{userInfo.email}</UserLI>
+        </UserDiv>
+        </A>
+        // </UserContext.Provider>
     )
 }

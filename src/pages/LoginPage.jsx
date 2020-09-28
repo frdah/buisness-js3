@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from "react-router-dom"
 import UserKit from '../data/UserKit'
-import {DivCenterColumn, H2, Input, Button, LoginButton} from "../components/styles"
+import {DivCenterColumn, H2, LoginButton, CreateCustomerInput, NavButton} from "../components/styles"
 
 export default function LoginPage() {
 
@@ -10,20 +10,6 @@ export default function LoginPage() {
     
     const userKit = new UserKit()
     const history = useHistory()
-    // const searchString = history.location.search
-    // const urlParameters = new URLSearchParams(searchString)
-
-    // const [uid, setUid] = useState(urlParameters.get("uid"))
-    // const [token, setToken] = useState(urlParameters.get("token"))
-
-    // function handleActivateUser() {
-    //     userKit.activateUser(uid, token)
-    //     .then(() => {
-    //     setUid(null)
-    //     setToken(null)
-    //       history.push("/login");
-    //     })
-    // }
 
     function handleLogin () {
         userKit.login(loginEmail, loginPassword)
@@ -31,16 +17,18 @@ export default function LoginPage() {
         .then(data => {
           userKit.setToken(data.token)
           history.push("/home")
-        })
-        
-      }
+        }) 
+    }
+
+    function handlePushRegister() {history.push("/")}
 
     return (
-        <DivCenterColumn>
+        <DivCenterColumn marginTop white>
             <H2>Login</H2>
-            <Input placeholder="email" value={loginEmail} onChange={e => setLoginEmail(e.target.value)}/>
-            <Input type="password" placeholder="password" value={loginPassword} onChange={e => setLoginPassword(e.target.value)}/>
+            <CreateCustomerInput placeholder="email" value={loginEmail} onChange={e => setLoginEmail(e.target.value)}/>
+            <CreateCustomerInput type="password" placeholder="password" value={loginPassword} onChange={e => setLoginPassword(e.target.value)}/>
             <LoginButton onClick={handleLogin}>Login</LoginButton>
+            <NavButton onClick={handlePushRegister}>Register</NavButton>
         </DivCenterColumn>
     )
 }

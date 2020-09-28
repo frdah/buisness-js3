@@ -1,35 +1,30 @@
 import React, { Children } from 'react'
 import UserKit from '../data/UserKit'
-import LoginPage from '../pages/LoginPage'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import HomeButton from "./HomeButton"
-import {H1, NavDiv, CreateCustomerButton, DivCenterRow} from "../components/styles"
-import { useHistory } from 'react-router-dom'
+import {H1, NavDiv, DivCenterRow, DivCenterColumn} from "../components/styles"
+import UserBox from './UserBox'
 
 
 export default function Navigation({children}) {
 const userKit = new UserKit()
-const history = useHistory()
 
-function pushRegister () {
-    history.push("/")
-}
 
     return (
         <div>
         <NavDiv>
             <H1>Business Project</H1>
             <DivCenterRow>
+            {userKit.getToken() == null ? "" : <UserBox/>}
 
+            <DivCenterColumn>
+            {userKit.getToken() == null ? "" : <HomeButton/>}
             {userKit.getToken() == null ? <LoginButton/> : <LogoutButton/>
             }
-            <CreateCustomerButton onClick={pushRegister}>Register</CreateCustomerButton>
-            <HomeButton/>
             
-            
+            </DivCenterColumn>
             </DivCenterRow>
-
 
         </NavDiv>
         {children}

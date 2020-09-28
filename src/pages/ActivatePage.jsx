@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 import UserKit from '../data/UserKit'
 import LoginPage from './LoginPage'
-import  {DivCenterColumn, H4, BigButton, CreateCustomerButton} from "../components/styles"
+import  {DivCenterColumn, H4, BigButton} from "../components/styles"
 
 export default function ActivatePage() {
 
@@ -25,8 +25,8 @@ export default function ActivatePage() {
 
     return (
         <DivCenterColumn>
-        {token && token ? (
-            <DivCenterColumn>
+        {token ? (
+            <DivCenterColumn marginTop>
             <H4>Activate Account</H4>
             <BigButton onClick={handleActivateUser}>Activate user</BigButton>
             </DivCenterColumn>

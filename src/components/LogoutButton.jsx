@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import {CreateCustomerButton} from "./styles"
+import { NavButton} from "./styles"
 
 
 export default function LogoutButton() {
@@ -11,7 +11,7 @@ export default function LogoutButton() {
     }
     return (
         
-        <CreateCustomerButton onClick={logout}>Logout</CreateCustomerButton>
+        <NavButton onClick={logout}>Logout</NavButton>
         
     )
 }

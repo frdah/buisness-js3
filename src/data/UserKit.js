@@ -1,5 +1,6 @@
 const ROOT_URL = "https://frebi.willandskill.eu/"
 export default class {
+    
     async register(firstName, lastName, email, password, organisationName, organisationKind){
         const url  = `${ROOT_URL}auth/users/`
         const payload = {
@@ -16,7 +17,7 @@ export default class {
         const url = `${ROOT_URL}auth/users/activate/`
         const payload = {uid, token}
         
-        return  fetch(url, { //borde få 204 tillbaka utan respons
+        return  fetch(url, { 
                 method: "POST",
                 headers: this.getPuplicHeaders(),
                 body: JSON.stringify(payload)
@@ -103,6 +104,10 @@ export default class {
 
     getToken() {
         return localStorage.getItem("BUISINESS_TOKEN")
+    }
+
+    deleteToken() {
+        localStorage.removeItem("BUISINESS_TOKEN")
     }
     
 }
