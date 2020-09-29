@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d0fcca261bfcedd23e8b1d7271943bac",
+    "revision": "d8d7712f8fe740b93b2174253be07ef1",
     "url": "//frdah.github.io/buisness-js3/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "//frdah.github.io/buisness-js3/static/js/2.a37d049e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "15e0ef8d7dfe1a014cf1",
-    "url": "//frdah.github.io/buisness-js3/static/js/main.72a5004d.chunk.js"
+    "revision": "270c33bc76bcbc966459",
+    "url": "//frdah.github.io/buisness-js3/static/js/main.3ddee2b8.chunk.js"
   },
   {
     "revision": "48ee92f0cfd9ea894e27",
