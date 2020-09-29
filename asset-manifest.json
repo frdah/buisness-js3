@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/buisness-js3/static/js/main.8335e77a.chunk.js",
-    "main.js.map": "/buisness-js3/static/js/main.8335e77a.chunk.js.map",
+    "main.js": "/buisness-js3/static/js/main.5af6755a.chunk.js",
+    "main.js.map": "/buisness-js3/static/js/main.5af6755a.chunk.js.map",
     "runtime-main.js": "/buisness-js3/static/js/runtime-main.71c8078b.js",
     "runtime-main.js.map": "/buisness-js3/static/js/runtime-main.71c8078b.js.map",
-    "static/js/2.be34a292.chunk.js": "/buisness-js3/static/js/2.be34a292.chunk.js",
-    "static/js/2.be34a292.chunk.js.map": "/buisness-js3/static/js/2.be34a292.chunk.js.map",
+    "static/js/2.efab3e35.chunk.js": "/buisness-js3/static/js/2.efab3e35.chunk.js",
+    "static/js/2.efab3e35.chunk.js.map": "/buisness-js3/static/js/2.efab3e35.chunk.js.map",
     "index.html": "/buisness-js3/index.html",
-    "precache-manifest.fc3b9a658635dffb9c29f975c324e72c.js": "/buisness-js3/precache-manifest.fc3b9a658635dffb9c29f975c324e72c.js",
+    "precache-manifest.aaff43202cf7dd317395df6cedbdf6fb.js": "/buisness-js3/precache-manifest.aaff43202cf7dd317395df6cedbdf6fb.js",
     "service-worker.js": "/buisness-js3/service-worker.js",
-    "static/js/2.be34a292.chunk.js.LICENSE.txt": "/buisness-js3/static/js/2.be34a292.chunk.js.LICENSE.txt"
+    "static/js/2.efab3e35.chunk.js.LICENSE.txt": "/buisness-js3/static/js/2.efab3e35.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.71c8078b.js",
-    "static/js/2.be34a292.chunk.js",
-    "static/js/main.8335e77a.chunk.js"
+    "static/js/2.efab3e35.chunk.js",
+    "static/js/main.5af6755a.chunk.js"
   ]
 }
