@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "//frdah.github.io/buisness-js3/static/js/main.d4683490.chunk.js",
+    "main.js.map": "//frdah.github.io/buisness-js3/static/js/main.d4683490.chunk.js.map",
+    "runtime-main.js": "//frdah.github.io/buisness-js3/static/js/runtime-main.1c749c33.js",
+    "runtime-main.js.map": "//frdah.github.io/buisness-js3/static/js/runtime-main.1c749c33.js.map",
+    "static/js/2.a37d049e.chunk.js": "//frdah.github.io/buisness-js3/static/js/2.a37d049e.chunk.js",
+    "static/js/2.a37d049e.chunk.js.map": "//frdah.github.io/buisness-js3/static/js/2.a37d049e.chunk.js.map",
+    "index.html": "//frdah.github.io/buisness-js3/index.html",
+    "precache-manifest.79f9f175c1173a965fb7dd48c3312681.js": "//frdah.github.io/buisness-js3/precache-manifest.79f9f175c1173a965fb7dd48c3312681.js",
+    "service-worker.js": "//frdah.github.io/buisness-js3/service-worker.js",
+    "static/js/2.a37d049e.chunk.js.LICENSE.txt": "//frdah.github.io/buisness-js3/static/js/2.a37d049e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1c749c33.js",
+    "static/js/2.a37d049e.chunk.js",
+    "static/js/main.d4683490.chunk.js"
+  ]
+}
