@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter baseLine="/buisness-js3">
+    <BrowserRouter baseName="/buisness-js3">
     <App />
     </BrowserRouter>
   </React.StrictMode>,
