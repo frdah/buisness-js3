@@ -1,5 +1,5 @@
 import React, { useEffect, useContext} from 'react'
-//import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 import UserKit from '../data/UserKit'
 import { UserDiv, UserLI, A} from "./styles"
 import {UserContext} from "../contexts/UserContext"
@@ -21,13 +21,11 @@ export default function UserBox() {
     }, [])
 
     return (
-        // <UserContext.Provider value={{firstName, setFirstName, lastName, setLastName, email, setEmail}}>
-        <A href="/profile">
+        <Link to="/profile">
         <UserDiv>
             <UserLI>{userInfo.firstName} {userInfo.lastName}</UserLI>
             <UserLI>{userInfo.email}</UserLI>
         </UserDiv>
-        </A>
-        // </UserContext.Provider>
+        </Link>
     )
 }

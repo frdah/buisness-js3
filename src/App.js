@@ -33,6 +33,8 @@ function App() {
         )
       }}></Route>
 
+
+
         <Route path="/home">
           <Navigation>
             <HomePage/>
@@ -50,6 +52,8 @@ function App() {
           <ProfilePage/>
         </Navigation>
       </Route>
+
+
 
         <Route path="/">
           <Navigation>
